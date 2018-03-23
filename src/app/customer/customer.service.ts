@@ -46,7 +46,7 @@ export class CustomerService {
     }
 
     let currentDate = new Date();
-    if ((currentDate.getFullYear() - birthday.year) < 18) {
+    if (this.getAge(customer.birthday) < 18) {
       return new ServiceResponse(false, 'Debe ser mayor de edad');
     }
 
@@ -69,5 +69,19 @@ export class CustomerService {
    */
   public createCustomer(customer: Customer): Observable<RestResponse> {
     return this.http.post<RestResponse>("http://localhost:8080/customer/createCustomer", JSON.stringify(customer));
+  }
+
+  /**
+   * Calcula la edad de un usuario
+   * @param birthDate 
+   */
+  public getAge(birthDate: Date): any {
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() + 1 - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
   }
 }
