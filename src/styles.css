@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.main-div{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+}
+.main-titles{
+    margin-bottom: 70px;
+    text-align: center;
+    
+}

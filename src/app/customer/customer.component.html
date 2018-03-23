@@ -1,0 +1,37 @@
+<div class="main-div">
+  <h1 class="main-titles">Registro de clientes</h1>
+  <form>
+    <div class="form-group">
+      <label for="identiInput">Identificación</label>
+      <input type="number" class="form-control" id="identiInput" placeholder="Ingrese su identificación">
+    </div>
+    <div class="form-group">
+      <label for="nameInput">Nombre</label>
+      <input type="text" class="form-control" id="nameInput" placeholder="Ingrese su nombre">
+    </div>
+    <div class="form-group">
+      <label for="lastnameInput">Apellido</label>
+      <input type="text" class="form-control" id="lastnameInput" placeholder="Ingrese su apellido">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

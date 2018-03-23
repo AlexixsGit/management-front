@@ -1,0 +1,21 @@
+<div class="main-div">
+  <div class="alert alert-success" role="alert" *ngIf="isSuccess">
+    {{message}}
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!isValid">
+    {{message}}
+  </div>
+  <form action="action_page.php">
+    <div class="imgcontainer">
+      <img src="assets/clients.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname">
+        <b>Identificación</b>
+      </label>
+      <input type="text" placeholder="Ingrese la identificación" [(ngModel)]="identification" name="uname" required>
+      <button type="submit" (click)="!isRunning && login()">Ingresar</button>
+    </div>
+  </form>
+</div>
