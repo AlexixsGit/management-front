@@ -1,4 +1,5 @@
 <div class="main-div">
+  <h6>Bienvenid@ {{customer.name | uppercase}} {{customer.lastname | uppercase}} </h6>
   <h1 class="main-titles">Plataforma de créditos</h1>
   <div class="alert alert-success" role="alert" *ngIf="isSuccess">
     El préstamo ha sido aprobado por un valor de {{credit.value | currency }}
@@ -9,15 +10,15 @@
   <form *ngIf="jobInfo">
     <div class="form-group">
       <label for="nameInput">Nombre de la empresa</label>
-      <input type="text" name="nameInput" class="form-control" id="nameInput" [(ngModel)]="jobInfo.companyName" placeholder="Ingrese el nombre de la empresa">
+      <input type="text" name="nameInput" maxlength="30"  class="form-control" id="nameInput" [(ngModel)]="jobInfo.companyName" placeholder="Ingrese el nombre de la empresa">
     </div>
     <div class="form-group">
       <label for="nameInput">Nit</label>
-      <input type="number" name="nameInput" class="form-control" id="nameInput" [(ngModel)]="jobInfo.nit" placeholder="Ingrese el nit de la empresa">
+      <input type="number" name="nameInput" maxlength="4"   class="form-control" id="nameInput" [(ngModel)]="jobInfo.nit" placeholder="Ingrese el nit de la empresa">
     </div>
     <div class="form-group">
       <label for="lastnameInput">Salario</label>
-      <input type="number" name="lastnameInput" class="form-control" id="lastnameInput" [(ngModel)]="jobInfo.salary" placeholder="Ingrese su salario">
+      <input type="number" name="lastnameInput" maxlength="15" class="form-control" id="lastnameInput" [(ngModel)]="jobInfo.salary" placeholder="Ingrese su salario">
     </div>
     <div class="form-group">
       <label for="lastnameInput">Fecha de ingreso a la empresa</label>

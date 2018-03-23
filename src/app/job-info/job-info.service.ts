@@ -57,7 +57,12 @@ export class JobInfoService {
       return new ServiceResponse(false, 'Ingrese una fecha válida');
     }
 
+
     jobInfo.entryDate = new Date(entryDate.year, entryDate.month, entryDate.day);
+    if (!jobInfo.entryDate.getDate()) {
+      return new ServiceResponse(false, 'Ingrese una fecha válida');
+    }
+
     let currentDate = new Date();
 
     let days = (currentDate.getFullYear() + currentDate.getMonth() + 1 + currentDate.getDate())
@@ -83,8 +88,16 @@ export class JobInfoService {
       return new ServiceResponse(false, 'El cliente no cumple con el tiempo minimo de estar laborando');
     }
 
-    if (jobInfo.salary < 800000) {
+    if (jobInfo.salary <= 800000) {
       return new ServiceResponse(false, 'El cliente no cumple con el salario minimo para el prestamo');
+    }
+
+    if (jobInfo.salary === 1000000) {
+      return new ServiceResponse(false, 'El salario ingresado no aplica para el prestamo');
+    }
+
+    if (jobInfo.salary === 4000000) {
+      return new ServiceResponse(false, 'El salario ingresado no aplica para el prestamo');
     }
 
     return new ServiceResponse(true, '');

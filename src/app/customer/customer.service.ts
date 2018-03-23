@@ -79,7 +79,7 @@ export class CustomerService {
     var today = new Date();
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() + 1 - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    if (m < 0 || (m === 0 && birthDate.getDate() > today.getDate())) {
       age--;
     }
     return age;
