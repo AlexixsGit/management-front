@@ -1,3 +1,39 @@
-<p>
-  job-info works!
-</p>
+<div class="main-div">
+  <h1 class="main-titles">Plataforma de créditos</h1>
+  <div class="alert alert-success" role="alert" *ngIf="isSuccess">
+    El préstamo ha sido aprobado por un valor de {{credit.value | currency }}
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!isValid">
+    {{message}}
+  </div>
+  <form *ngIf="jobInfo">
+    <div class="form-group">
+      <label for="nameInput">Nombre de la empresa</label>
+      <input type="text" name="nameInput" class="form-control" id="nameInput" [(ngModel)]="jobInfo.companyName" placeholder="Ingrese el nombre de la empresa">
+    </div>
+    <div class="form-group">
+      <label for="nameInput">Nit</label>
+      <input type="number" name="nameInput" class="form-control" id="nameInput" [(ngModel)]="jobInfo.nit" placeholder="Ingrese el nit de la empresa">
+    </div>
+    <div class="form-group">
+      <label for="lastnameInput">Salario</label>
+      <input type="number" name="lastnameInput" class="form-control" id="lastnameInput" [(ngModel)]="jobInfo.salary" placeholder="Ingrese su salario">
+    </div>
+    <div class="form-group">
+      <label for="lastnameInput">Fecha de ingreso a la empresa</label>
+      <form class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="entryDate" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <img src="assets/calendar-icon.png" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button type="submit" class="btn btn-primary btn-center" (click)="!isRunning && create()">Registrar</button>
+  </form>
+</div>

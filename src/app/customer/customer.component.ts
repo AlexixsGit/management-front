@@ -1,6 +1,6 @@
-import { ServiceResponse } from './../util/service-response';
 import { Component, OnInit } from '@angular/core';
 
+import { ServiceResponse } from './../util/service-response';
 import { Customer } from './../model/customer.model';
 import { CustomerService } from './customer.service';
 

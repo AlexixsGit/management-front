@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
         if (res.list.length > 0) {
           this.isSuccess = true;
+          sessionStorage.setItem('customer', JSON.stringify(res.list[0]));
           this.router.navigate(['/jobInfoComponent']);
         } else {
           this.isValid = false;
